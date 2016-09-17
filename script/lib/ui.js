@@ -1,4 +1,15 @@
 const UI = {
+    parent: function matches(element, selector) {
+        return new Promise(resolve => {
+            do {
+                if (element.matches && element.matches(selector)) {
+                    resolve(element);
+                    return;
+                }
+            } while ((element = element.parentNode));
+        });
+    },
+
     Content: class {
         constructor()
         {
