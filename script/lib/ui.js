@@ -34,7 +34,14 @@ const UI = {
     Player: class {
         constructor(videoObject)
         {
+            const template = document.querySelector('template.player');
+            this.element = document.importNode(template.content, true);
 
+            this.element.querySelector('.title')
+                .innerText = videoObject.snippet.title;
+
+            this.element.querySelector('.video-window')
+                .innerHTML = videoObject.player.embedHtml;
         }
     },
     Video: class {

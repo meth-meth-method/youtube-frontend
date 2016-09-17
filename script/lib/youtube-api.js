@@ -45,14 +45,6 @@ class YouTubeAPI
         return fetch(url.toString()).then(response => response.json());
     }
 
-    getVideo(videoId)
-    {
-        const url = new URL('https://www.googleapis.com/youtube/v3/search');
-        url.add('part', 'contentDetails');
-        url.add('id', videoId);
-        return this.fetch(url);
-    }
-
     search(query, limit = 20)
     {
         const url = new URL('https://www.googleapis.com/youtube/v3/search');
@@ -60,5 +52,16 @@ class YouTubeAPI
         url.add('q', query);
         url.add('maxResults', limit);
         return this.fetch(url);
+    }
+
+    video(videoId)
+    {
+        const url = new URL('https://www.googleapis.com/youtube/v3/videos');
+        url.add('part', 'contentDetails,player,snippet');
+        url.add('id', videoId);
+        return this.fetch(url).then(data => {
+            console.log(data);
+            return data.items[0];
+        });
     }
 }

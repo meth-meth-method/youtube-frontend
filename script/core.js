@@ -13,3 +13,14 @@ document.addEventListener('submit', event => {
         actions.search(query);
     }
 });
+
+document.addEventListener('click', event => {
+    UI.parent(event.target, 'a').then(anchor => {
+        event.preventDefault();
+        if (anchor.href.endsWith('#video')) {
+            UI.parent(anchor, '.video').then(el => {
+                actions.goToVideo(el.dataset.videoId);
+            });
+        }
+    });
+});

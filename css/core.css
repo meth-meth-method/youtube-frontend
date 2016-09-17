@@ -155,3 +155,26 @@ nav.tabs > a.selected {
     color: #767676;
     font-size: 11px;
 }
+
+
+.player {
+    background: #fff;
+    margin: 0 5em;
+    padding: 1em;
+}
+
+.player .title {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.player .video-window {
+    margin: 0 auto;
+    height: 450px;
+    width: 800px;
+}
+
+.player .video-window iframe {
+    height: 100%;
+    width: 100%;
+}
