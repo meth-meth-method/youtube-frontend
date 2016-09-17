@@ -1,7 +1,6 @@
 const API_KEY = 'AIzaSyDrRbZDOwixw1n_t1mQjxd-IGuNl_yoVIM';
 
 const api = new YouTubeAPI(API_KEY);
-
 const content = new UI.Content();
 const actions = new Actions({content}, api);
 
