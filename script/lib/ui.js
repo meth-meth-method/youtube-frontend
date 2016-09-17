@@ -33,7 +33,7 @@ const UI = {
             this.element = document.importNode(template.content, true);
 
             this.element.querySelector('.video')
-                .dataset.id = videoObject.id.videoId;
+                .dataset.videoId = videoObject.id.videoId;
 
             this.element.querySelector('.image img')
                 .src = videoObject.snippet.thumbnails.medium.url;
