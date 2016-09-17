@@ -11,7 +11,9 @@ class Actions
         this.ui.content.clear();
         this.api.search(query).then(data => {
             const videoGroup = new UI.VideoGroup(`Results for "${query}"`);
-            data.items.forEach(item => {
+            data.items
+            .filter(item => item.id.kind === "youtube#video")
+            .forEach(item => {
                 const video = new UI.Video(item);
                 videoGroup.addVideo(video);
             });
