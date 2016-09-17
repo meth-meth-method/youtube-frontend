@@ -23,6 +23,15 @@ class URL
         this.params.push([key, value]);
     }
 
+    get(key)
+    {
+        const pairs = this.params.filter(([_key]) => _key === key);
+        if (pairs.length) {
+            return pairs[0][1];
+        }
+        return null;
+    }
+
     toString()
     {
         return this.endpoint + '?' +

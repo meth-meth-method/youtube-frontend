@@ -24,3 +24,14 @@ document.addEventListener('click', event => {
         }
     });
 });
+
+window.addEventListener('load', event => {
+    const loc = window.location;
+    if (loc.pathname.endsWith('/watch')) {
+        const url = new URL(loc.toString());
+        const videoId = url.get('v');
+        if (videoId) {
+            actions.goToVideo(videoId);
+        }
+    }
+});
