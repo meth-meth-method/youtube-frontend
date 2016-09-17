@@ -9,10 +9,15 @@ a {
 
 header {
     align-items: center;
+    background: #fff;
     display: flex;
     border-bottom: solid 1px #e8e8e8;
     justify-content: space-between;
     padding: 8px;
+    position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
 }
 
 header .control {
@@ -96,6 +101,7 @@ nav.tabs > a.selected {
 
 #content {
     background: #f1f1f1;
+    margin: 47px 0 0 0;
     padding: 10px;
 }
 
