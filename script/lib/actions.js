@@ -23,10 +23,8 @@ class Actions
 
     goToVideo(videoId)
     {
-        console.log('Load video', videoId);
         this.ui.content.clear();
         this.api.video(videoId).then(data => {
-            console.log(data);
             const player = new UI.Player(data);
             this.ui.content.set(player);
         });
