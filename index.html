@@ -2,19 +2,23 @@
 <head>
     <title>YouTube</title>
     <link rel="stylesheet" type="text/css" href="./css/core.css"/>
+    <script src="./script/lib/youtube-api.js"></script>
+    <script src="./script/lib/ui.js"></script>
+    <script src="./script/core.js"></script>
 </head>
 <body>
     <header>
-        <button id="sidebar-toggle" title="Toggle sidebar"></button>
+        <div class="control">
+            <button id="sidebar-toggle" title="Toggle sidebar"></button>
 
-        <a id="youtube-logo">
-            <h1>YouTube</h1>
-            <span class="country">SE</span>
-        </a>
+            <a id="youtube-logo" href="/">
+                <h1 class="title">YouTube</h1>
+                <span class="country">SE</span>
+            </a>
+        </div>
 
         <form id="search-bar">
-            <input name="query" type="text"/>
-            <button type="submit">Search</button>
+            <input name="query" type="text"/><button type="submit"></button>
         </form>
 
         <section id="profile">
@@ -24,27 +28,34 @@
         </section>
     </header>
 
-    <nav class="tabs">
-        <a href="#home">Home</a>
-        <a href="#trending">Trending</a>
-        <a href="#subscriptions">Subscriptions</a>
-    </nav>
+    <template class="video">
+        <article class="video" data-id="">
+            <a href="#video">
+                <div class="image">
+                    <img src=""/>
+                </div>
+                <div class="title"></div>
+            </a>
 
-    <div id="home">
-        <section>
-            <h1>Watch It Again</h1>
+            <a href="#channel" class="channel"></a>
+            <div class="stats">
+                <span class="views"></span>
+                <span class="date"></span>
+            </div>
+        </article>
+    </template>
 
-            <article class="video">
-                <a href="#video">
-                    <img src="https://i.ytimg.com/vi/H2aW5V46khA/hqdefault.jpg?custom=true&amp;w=196&amp;h=110&amp;stc=true&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=7V-W9mywVSNiVNGzkDM1qH52dz8"/>
-                    <div class="title">Writing a Tetris game in JavaScript</div>
-                </a>
+    <template class="video-group">
+        <section class="videos">
+            <h2 class="title"></h2>
 
-                <a href="#channel" class="channel">Meth Meth Method</a>
-                <span class="views">1,648 views</span>
-                <span class="date">1 week ago</span>
-            </article>
+            <div class="video-list">
+            </div>
         </section>
+    </template>
+
+    <div id="content">
+
     </div>
 </body>
 </html>
