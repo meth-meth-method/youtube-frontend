@@ -178,3 +178,12 @@ nav.tabs > a.selected {
     height: 100%;
     width: 100%;
 }
+
+.player .details {
+    font-size: 13px;
+    line-height: 17px;
+}
+
+.player .details .date {
+    font-weight: bold;
+}

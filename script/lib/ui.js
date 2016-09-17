@@ -1,4 +1,31 @@
 const UI = {
+    MONTHS: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+
+    encodeHTMLentities: function(text) {
+        return [
+            [/&/g, '&amp;'],
+            [/</g, '&lt;'],
+            [/>/g, '&gt;'],
+            [/"/g, '&quot;'],
+            [/'/g, '&#039;'],
+        ].reduce((s, [r, e]) => s.replace(r, e), text);
+    },
+
+    formatDate: function(date, format = '%Y-%m-%d %H:%M')
+    {
+        const MONTHS = []
+
+        return [
+            ['%G', UI.MONTHS[date.getMonth()]],
+            ['%Y', date.getFullYear()],
+            ['%m', date.getMonth() + 1],
+            ['%d', date.getDate()],
+            ['%H', date.getHours()],
+            ['%M', date.getMinutes()],
+            ['%S', date.getSeconds()],
+        ].reduce((text, [p, v]) => text.replace(p, v), format);
+    },
+
     parent: function matches(element, selector) {
         return new Promise(resolve => {
             do {
@@ -42,6 +69,15 @@ const UI = {
 
             this.element.querySelector('.video-window')
                 .innerHTML = videoObject.player.embedHtml;
+
+            this.element.querySelector('.date')
+                .innerText = UI.formatDate(
+                    new Date(videoObject.snippet.publishedAt),
+                    'Published on %d %G %Y');
+
+            const desc = UI.encodeHTMLentities(videoObject.snippet.description + ' & <script>');
+            this.element.querySelector('.description')
+                .innerHTML = desc.replace(/\n/g, '<br>');
         }
     },
     Video: class {
